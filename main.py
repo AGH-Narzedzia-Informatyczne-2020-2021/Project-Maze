@@ -3,6 +3,7 @@ from PIL import Image,ImageTk
 
 root = Tk()
 root.title('test')
+root.iconbitmap(r'Images\cube_icon_.ico')
 root.geometry("500x450")
 
 program1 = Button(root,text="program 1",padx=40,pady=50)
