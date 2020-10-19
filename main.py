@@ -2,7 +2,7 @@ from tkinter import *
 from PIL import Image,ImageTk
 
 root = Tk()
-root.title('test')
+root.title('main')
 root.iconbitmap(r'Images\cube_icon_.ico')
 root.geometry("500x450")
 
