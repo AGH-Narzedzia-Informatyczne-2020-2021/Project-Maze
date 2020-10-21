@@ -1,0 +1,2 @@
+def abs():
+    pass
