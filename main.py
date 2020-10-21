@@ -34,5 +34,5 @@ program2.grid(row=0,column=1,padx=50,pady=50,command= open_program2)
 program3.grid(row=1,column=0,padx=50,pady=50,command= open_program3)
 program4.grid(row=1,column=1,padx=50,pady=50,command= open_program4)
 
-
+#testowy komentarz
 root.mainloop()
