@@ -11,7 +11,6 @@ class Window1:
         self.quitButton.pack()
         self.frame.pack()
         self.parent = parent
-        #sffdfdfdfdfdf
 
     def close_windows(self):
         self.master.destroy()
