@@ -9,7 +9,9 @@ class Menu:
     def __init__(self, master):
         self.master = master
         self.master.geometry("500x450")
+        self.master.title("Menu")
         self.frame = Frame(self.master)
+        self.master.iconbitmap(r'Images\cube_icon_.ico')
 
         #icon
         self.quiz_icon = ImageTk.PhotoImage(Image.open(r'Images\earth.png'))
@@ -38,4 +40,4 @@ class Menu:
 
     def new_window4(self):
         new_window = Toplevel(self.master)
-       # Window3.Window3(new_window, self)  # not exist yet
+       #Window3.Window3(new_window, self)  # not exist yet
