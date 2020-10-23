@@ -91,44 +91,41 @@ class Calculator:
         self.quitButton = Button(self.master, text='X', command=self.close_windows, bg="red", width=sk, height=wk)
         self.quitButton.grid(row=0, column=4, rowspan=2, sticky=N+S)
 
-        self.nineButton = Button(self.master, text='9', height=wk, width=sk)
+        self.nineButton = Button(self.master, text='9', height=wk, width=sk, command=lambda: self.click(9))
         self.nineButton.grid(row=2, column=0)
 
-        self.eightButton = Button(self.master, text='8', height=wk, width=sk)
+        self.eightButton = Button(self.master, text='8', height=wk, width=sk, command=lambda: self.click(8))
         self.eightButton.grid(row=2, column=1)
 
-        self.sevenButton = Button(self.master, text='7', height=wk, width=sk)
+        self.sevenButton = Button(self.master, text='7', height=wk, width=sk, command=lambda: self.click(7))
         self.sevenButton.grid(row=2, column=2)
 
         self.divisionButton = Button(self.master, text='/', height=wk, width=sk)
         self.divisionButton.grid(row=2, column=3)
 
-        self.sixButton = Button(self.master, text='6', height=wk, width=sk)
+        self.sixButton = Button(self.master, text='6', height=wk, width=sk, command=lambda: self.click(6))
         self.sixButton.grid(row=3, column=0)
 
-        self.fiveButton = Button(self.master, text='5', height=wk, width=sk)
+        self.fiveButton = Button(self.master, text='5', height=wk, width=sk, command=lambda: self.click(5))
         self.fiveButton.grid(row=3, column=1)
 
-        self.fourButton = Button(self.master, text='4', height=wk, width=sk)
+        self.fourButton = Button(self.master, text='4', height=wk, width=sk, command=lambda: self.click(4))
         self.fourButton.grid(row=3, column=2)
 
         self.multiplicationButton = Button(self.master, text='*', height=wk, width=sk)
         self.multiplicationButton.grid(row=3, column=3)
 
-        self.treeButton = Button(self.master, text='3', height=wk, width=sk)
+        self.treeButton = Button(self.master, text='3', height=wk, width=sk, command=lambda: self.click(3))
         self.treeButton.grid(row=4, column=0)
 
-        self.twoButton = Button(self.master, text='2', height=wk, width=sk)
+        self.twoButton = Button(self.master, text='2', height=wk, width=sk, command=lambda: self.click(2))
         self.twoButton.grid(row=4, column=1)
 
-        self.oneButton = Button(self.master, text='1', height=wk, width=sk)
+        self.oneButton = Button(self.master, text='1', height=wk, width=sk, command=lambda: self.click(1))
         self.oneButton.grid(row=4, column=2)
 
         self.subtractionButton = Button(self.master, text='-', height=wk, width=sk)
         self.subtractionButton.grid(row=4, column=3)
-
-        self.treeButton = Button(self.master, text='3', height=wk, width=sk)
-        self.treeButton.grid(row=4, column=0)
 
         self.emptyButton = Button(self.master, text='', height=wk, width=sk)
         self.emptyButton.grid(row=5, column=0)
@@ -145,8 +142,11 @@ class Calculator:
 
         self.result.delete(0, "end")
 
-    def close_windows(self):
+    def close_windows(self):    #komenda zamykania
         self.master.destroy()
+
+    def click(self, nmbr, i=100):            #wypisywanie cyfr po kliknieciu przycicku
+        self.entry.insert(i, nmbr)
 
     def calculate(self):
         self.result.delete(0, 'end')
