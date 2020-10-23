@@ -72,21 +72,76 @@ class Calculator:
     def __init__(self, master):
         self.master = master
         self.frame = Frame(self.master)
-        self.master.title("Window1")
-        self.master.geometry("550x200")
+        self.master.title("Kalkulator")
+        self.master.geometry("500x500")
         self.frame = Frame(self.master)
 
-        self.entry = Entry(self.master)
-        self.entry.grid(row=0, column=0)
+        sk=5   #szerokosc przyciskow
+        wk=2    #wysokosc przyciskow
 
-        self.calculate = Button(self.master, text="=", command=self.calculate)
-        self.calculate.grid(row=0, column=1, rowspan=2, columnspan=2, sticky=N+S)
+        self.entry = Entry(self.master)
+        self.entry.grid(row=0, column=0, columnspan=3,sticky=N+S+W+E)
+
+        self.calculate = Button(self.master, text="=", height=wk, width=sk, command=self.calculate)
+        self.calculate.grid(row=0, column=3, rowspan=2)
 
         self.result = Entry(self.master, text="0")
-        self.result.grid(row=1, column=0)
+        self.result.grid(row=1, column=0, columnspan=3, sticky=N+S+W+E)
 
-        self.quitButton = Button(self.master, text='Zamknij', command=self.close_windows)
-        self.quitButton.grid(row=0, column=3, rowspan=2, columnspan=2, sticky=N + S)
+        self.quitButton = Button(self.master, text='X', command=self.close_windows, bg="red", width=sk, height=wk)
+        self.quitButton.grid(row=0, column=4, rowspan=2, sticky=N+S)
+
+        self.nineButton = Button(self.master, text='9', height=wk, width=sk)
+        self.nineButton.grid(row=2, column=0)
+
+        self.eightButton = Button(self.master, text='8', height=wk, width=sk)
+        self.eightButton.grid(row=2, column=1)
+
+        self.sevenButton = Button(self.master, text='7', height=wk, width=sk)
+        self.sevenButton.grid(row=2, column=2)
+
+        self.divisionButton = Button(self.master, text='/', height=wk, width=sk)
+        self.divisionButton.grid(row=2, column=3)
+
+        self.sixButton = Button(self.master, text='6', height=wk, width=sk)
+        self.sixButton.grid(row=3, column=0)
+
+        self.fiveButton = Button(self.master, text='5', height=wk, width=sk)
+        self.fiveButton.grid(row=3, column=1)
+
+        self.fourButton = Button(self.master, text='4', height=wk, width=sk)
+        self.fourButton.grid(row=3, column=2)
+
+        self.multiplicationButton = Button(self.master, text='*', height=wk, width=sk)
+        self.multiplicationButton.grid(row=3, column=3)
+
+        self.treeButton = Button(self.master, text='3', height=wk, width=sk)
+        self.treeButton.grid(row=4, column=0)
+
+        self.twoButton = Button(self.master, text='2', height=wk, width=sk)
+        self.twoButton.grid(row=4, column=1)
+
+        self.oneButton = Button(self.master, text='1', height=wk, width=sk)
+        self.oneButton.grid(row=4, column=2)
+
+        self.subtractionButton = Button(self.master, text='-', height=wk, width=sk)
+        self.subtractionButton.grid(row=4, column=3)
+
+        self.treeButton = Button(self.master, text='3', height=wk, width=sk)
+        self.treeButton.grid(row=4, column=0)
+
+        self.emptyButton = Button(self.master, text='', height=wk, width=sk)
+        self.emptyButton.grid(row=5, column=0)
+
+        self.zeroButton = Button(self.master, text='0', height=wk, width=sk)
+        self.zeroButton.grid(row=5, column=1)
+
+        self.dotButton = Button(self.master, text='.', height=wk, width=sk)
+        self.dotButton.grid(row=5, column=2)
+
+        self.additionButton = Button(self.master, text='+', height=wk, width=sk)
+        self.additionButton.grid(row=5, column=3)
+
 
         self.result.delete(0, "end")
 
