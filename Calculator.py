@@ -2,9 +2,19 @@ from tkinter import *
 
 
 operators = {"+", "-", "*", "/"}
+numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}
 
 
-def split(sentence):
+def is_valid(list_of_formulas): # sprawdza czy użytkownik nie podał błędnych znaków
+    legal_sings = operators.union(numbers)
+    for word in list_of_formulas:
+        for letter in word:
+            if letter not in legal_sings:
+                return False
+    return True
+
+
+def split_sentence(sentence): # rozdziela dane na znaki i liczby tz 1+22 => 1, +, 22
     formulas = []
     index = 0
     last_sing_index = -1
@@ -25,21 +35,22 @@ def split(sentence):
 def remove_unwanted_sings(list_of_formulas):
     # removing sings from front
     have_minus_in_front = False
-    while list_of_formulas[0] in operators:
+    while list_of_formulas[0] in operators:  # usuwa niepotrzebne znaki z początku
         if list_of_formulas[0] == "-":
             have_minus_in_front = True
         list_of_formulas.pop(0)
     if have_minus_in_front:
-        list_of_formulas.insert(0, "-")
+        list_of_formulas.insert(0, "-")  # jeśli na początku był minus to dodaje 0-...
+        list_of_formulas.insert(0, "0")
 
     # removing sings from end
-    while list_of_formulas[-1] in operators:
+    while list_of_formulas[-1] in operators: # usuwa niepotrzebne znaki z końca
         list_of_formulas.pop()
 
     return list_of_formulas
 
 
-def simple_calc(a, operator, b):
+def simple_calc(a, operator, b): # potrafi wykonać bazowe obliczenia jak 1+3
     a = int(a)
     b = int(b)
     if operator == "+":
@@ -54,7 +65,8 @@ def simple_calc(a, operator, b):
     return 0
 
 
-def priority_calc(operators_set, formulas):
+def priority_calc(operators_set, formulas): # wykonuje działania na operatorach danych w operators_set
+    sth_hanged = False
     i = 0
     while i < len(formulas):
         if formulas[i] in operators_set:
@@ -63,9 +75,10 @@ def priority_calc(operators_set, formulas):
             formulas.pop(i)
             formulas.pop(i - 1)
             formulas.insert(i - 1, result)
+            sth_hanged = True
             break
         i += 1
-    return formulas
+    return formulas, sth_hanged
 
 
 class Calculator:
@@ -76,8 +89,8 @@ class Calculator:
         self.master.geometry("500x500")
         self.frame = Frame(self.master)
 
-        sk=5   #szerokosc przyciskow
-        wk=2    #wysokosc przyciskow
+        sk = 5   # szerokosc przyciskow
+        wk = 2    # wysokosc przyciskow
 
         self.entry = Entry(self.master)
         self.entry.grid(row=0, column=0, columnspan=3,sticky=N+S+W+E)
@@ -139,29 +152,32 @@ class Calculator:
         self.additionButton = Button(self.master, text='+', height=wk, width=sk)
         self.additionButton.grid(row=5, column=3)
 
-
         self.result.delete(0, "end")
 
-    def close_windows(self):    #komenda zamykania
+    def close_windows(self):    # komenda zamykania
         self.master.destroy()
 
-    def click(self, nmbr, i=100):            #wypisywanie cyfr po kliknieciu przycicku
+    def click(self, nmbr, i=100):            # wypisywanie cyfr po kliknieciu przycicku
         self.entry.insert(i, nmbr)
 
     def calculate(self):
         self.result.delete(0, 'end')
-        formulas = split(self.entry.get())
+        formulas = split_sentence(self.entry.get())
         formulas = remove_unwanted_sings(formulas)
 
-        if formulas[0] == "-":
-            formulas.insert(0, "0")
+        if not is_valid(formulas):
+            self.result.insert(0, "Error")
+            return
+
         print(formulas)
 
-        ##### odtąd kod do poprawki
-        for i in range(10):
-            formulas = priority_calc({"*", "/"}, formulas)
-        for i in range(10):
-            formulas = priority_calc({"+", "-"}, formulas)
+        should_continue = True
+        while should_continue:
+            formulas, should_continue = priority_calc({"*", "/"}, formulas)
+        should_continue = True
+        while should_continue:
+            formulas, should_continue = priority_calc({"+", "-"}, formulas)
+
         print(formulas)
         result = formulas[0]
 
