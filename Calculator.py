@@ -113,7 +113,7 @@ class Calculator:
         self.sevenButton = Button(self.master, text='7', height=wk, width=sk, command=lambda: self.click(7))
         self.sevenButton.grid(row=2, column=2)
 
-        self.divisionButton = Button(self.master, text='/', height=wk, width=sk)
+        self.divisionButton = Button(self.master, text='/', height=wk, width=sk, command=lambda: self.click("/"))
         self.divisionButton.grid(row=2, column=3)
 
         self.sixButton = Button(self.master, text='6', height=wk, width=sk, command=lambda: self.click(6))
@@ -125,7 +125,7 @@ class Calculator:
         self.fourButton = Button(self.master, text='4', height=wk, width=sk, command=lambda: self.click(4))
         self.fourButton.grid(row=3, column=2)
 
-        self.multiplicationButton = Button(self.master, text='*', height=wk, width=sk)
+        self.multiplicationButton = Button(self.master, text='*', height=wk, width=sk, command=lambda: self.click("*"))
         self.multiplicationButton.grid(row=3, column=3)
 
         self.treeButton = Button(self.master, text='3', height=wk, width=sk, command=lambda: self.click(3))
@@ -137,33 +137,40 @@ class Calculator:
         self.oneButton = Button(self.master, text='1', height=wk, width=sk, command=lambda: self.click(1))
         self.oneButton.grid(row=4, column=2)
 
-        self.subtractionButton = Button(self.master, text='-', height=wk, width=sk)
+        self.subtractionButton = Button(self.master, text='-', height=wk, width=sk, command=lambda: self.click("-"))
         self.subtractionButton.grid(row=4, column=3)
 
-        self.emptyButton = Button(self.master, text='', height=wk, width=sk)
-        self.emptyButton.grid(row=5, column=0)
+        self.clearButton = Button(self.master, text='C', height=wk, width=sk, command= self.clear)
+        self.clearButton.grid(row=5, column=0)
 
-        self.zeroButton = Button(self.master, text='0', height=wk, width=sk)
+        self.zeroButton = Button(self.master, text='0', height=wk, width=sk, command=lambda: self.click(0))
         self.zeroButton.grid(row=5, column=1)
 
-        self.dotButton = Button(self.master, text='.', height=wk, width=sk)
+        self.dotButton = Button(self.master, text='.', height=wk, width=sk, command=lambda: self.click("."))
         self.dotButton.grid(row=5, column=2)
 
-        self.additionButton = Button(self.master, text='+', height=wk, width=sk)
+        self.additionButton = Button(self.master, text='+', height=wk, width=sk, command=lambda: self.click("+"))
         self.additionButton.grid(row=5, column=3)
 
         self.result.delete(0, "end")
 
+
+    def clear(self):             # komenda czyszczenia
+        self.entry.delete(0, 'end')
+        self.result.delete(0, 'end')
+
     def close_windows(self):    # komenda zamykania
         self.master.destroy()
 
-    def click(self, nmbr, i=100):            # wypisywanie cyfr po kliknieciu przycicku
+    def click(self, nmbr, i=100): # wypisywanie cyfr po kliknieciu przycisku
+        self.result.delete(0, 'end')
         self.entry.insert(i, nmbr)
 
     def calculate(self):
         self.result.delete(0, 'end')
         formulas = split_sentence(self.entry.get())
         formulas = remove_unwanted_sings(formulas)
+        self.entry.delete(0, 'end')
 
         if not is_valid(formulas):
             self.result.insert(0, "Error")
