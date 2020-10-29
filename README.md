@@ -5,3 +5,8 @@
 * Python: 
   * tkinter
   * PIL
+  
+**Co będzie?**
+* Kalkulator
+* Quiz mapa
+* Checklista
