@@ -1,2 +1,2 @@
 # Project-Maze
-**Nazwa nie świadczy o projekcie**
+Nazwa nie świadczy o projekcie
