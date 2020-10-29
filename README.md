@@ -10,3 +10,8 @@
 * Kalkulator
 * Quiz mapa
 * Checklista
+
+**Minimalne wymagania sprzętowe**
+* Procesor: Tak
+* Myszka: Tak
+* Monitor: Tak
