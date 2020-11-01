@@ -162,13 +162,26 @@ class Calculator:
         self.master.destroy()
 
     def click(self, nmbr):  # wypisywanie cyfr po kliknieciu przycisku
+
         if self.entry.get() == '0':
-            self.entry.delete(0, 'end')
+            if nmbr != '+' and nmbr != '-' and nmbr != '*' and nmbr != '/':
+                self.entry.delete(0, 'end')
 
         self.result.delete(0, 'end')
         current = self.entry.get()
         self.entry.delete(0, 'end')
         self.entry.insert(0, str(current) + str(nmbr))
+
+        if len(self.entry.get()) == 1:
+            if nmbr == '+' or nmbr == '-' or nmbr == '*' or nmbr == '/':
+                self.entry.delete(0, 'end')
+
+        if len(self.entry.get()) > 2:
+            current = self.entry.get()
+            if current[-2] == '+' or current[-2] == '-' or current[-2] == '*' or current[-2] == '/':
+                if current[-1] == '+' or current[-1] == '-' or current[-1] == '*' or current[-1] == '/':
+                    self.entry.delete(0, 'end')
+                    self.entry.insert(0, current[0:-2] + nmbr)
 
     def calculate(self):
         self.result.delete(0, 'end')
