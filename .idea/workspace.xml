@@ -34,7 +34,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/main.py" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="JupyterTrust" id="00cd03b3-338d-48a4-88cd-38328beb0269" />
+  <component name="JupyterTrust" id="4a2b300e-e877-4ca8-8850-c2d64e8d1675" />
   <component name="ProjectId" id="1jBjPtagvz3e4mo1oncKfV1HNLy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -48,7 +48,29 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="Menu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Project-Maze" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Menu.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Project-Maze" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -74,6 +96,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.Menu" />
       </list>
     </recent_temporary>
   </component>
@@ -108,6 +131,10 @@
       <workItem from="1603529500164" duration="514000" />
       <workItem from="1603962808357" duration="240000" />
       <workItem from="1604248192282" duration="613000" />
+      <workItem from="1604341159593" duration="652000" />
+      <workItem from="1604344436817" duration="173000" />
+      <workItem from="1604344615946" duration="105000" />
+      <workItem from="1604344756117" duration="116000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1604247048015</created>
@@ -148,28 +175,28 @@
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603292401143" />
     <state x="740" y="275" key="FileChooserDialogImpl/1920.174.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1604248208951" />
-    <state width="938" height="282" key="GridCell.Tab.0.bottom" timestamp="1604248057902">
+    <state width="1877" height="283" key="GridCell.Tab.0.bottom" timestamp="1604344871579">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603963047985" />
+    <state width="1877" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604344871579" />
     <state width="1877" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603404199336" />
     <state width="938" height="282" key="GridCell.Tab.0.bottom/1920.174.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1604248057902" />
-    <state width="938" height="282" key="GridCell.Tab.0.center" timestamp="1604248057902">
+    <state width="1877" height="283" key="GridCell.Tab.0.center" timestamp="1604344871578">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603963047984" />
+    <state width="1877" height="283" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604344871578" />
     <state width="1877" height="283" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603404199336" />
     <state width="938" height="282" key="GridCell.Tab.0.center/1920.174.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1604248057902" />
-    <state width="938" height="282" key="GridCell.Tab.0.left" timestamp="1604248057902">
+    <state width="1877" height="283" key="GridCell.Tab.0.left" timestamp="1604344871578">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603963047984" />
+    <state width="1877" height="283" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604344871578" />
     <state width="1877" height="283" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603404199336" />
     <state width="938" height="282" key="GridCell.Tab.0.left/1920.174.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1604248057902" />
-    <state width="938" height="282" key="GridCell.Tab.0.right" timestamp="1604248057902">
+    <state width="1877" height="283" key="GridCell.Tab.0.right" timestamp="1604344871579">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="283" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603963047985" />
+    <state width="1877" height="283" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1604344871579" />
     <state width="1877" height="283" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1603404199336" />
     <state width="938" height="282" key="GridCell.Tab.0.right/1920.174.1280.984/0.0.1920.1040@0.0.1920.1040" timestamp="1604248057902" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1604247228603">
@@ -191,6 +218,7 @@
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1603306323709" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Project_Maze$main.coverage" NAME="main Coverage Results" MODIFIED="1604244120365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project_Maze$main.coverage" NAME="main Coverage Results" MODIFIED="1604344862015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project_Maze$Menu.coverage" NAME="Menu Coverage Results" MODIFIED="1604341195146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -2,7 +2,7 @@ from tkinter import *
 from PIL import  Image,ImageTk
 import Calculator
 import Quiz
-import Window2
+import Checklist
 
 
 class Menu:
@@ -38,7 +38,7 @@ class Menu:
 
     def new_window3(self):
         new_window = Toplevel(self.master)
-        Window2.Window2(new_window, self)
+        Checklist.Checklist(new_window, self)
 
     def new_window4(self):
         new_window = Toplevel(self.master)
