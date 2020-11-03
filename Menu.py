@@ -16,11 +16,12 @@ class Menu:
         #icon
         self.calculator_icon = ImageTk.PhotoImage(Image.open(r'Images\calculator-icon.png'))
         self.quiz_icon = ImageTk.PhotoImage(Image.open(r'Images\earth.png'))
+        self.checklist_icon = ImageTk.PhotoImage(Image.open(r'Images\checklist.png'))
 
 
         program1 = Button(self.master, image=self.calculator_icon, padx=40, pady=50, command=self.new_window1)
         program2 = Button(self.master, image=self.quiz_icon, padx=40, pady=50, command=self.new_window2)
-        program3 = Button(self.master, text="program 3", padx=40, pady=50, command=self.new_window3)
+        program3 = Button(self.master, image=self.checklist_icon, padx=40, pady=50, command=self.new_window3)
         program4 = Button(self.master, text="program 4", padx=40, pady=50, command=self.new_window4)
 
         program1.grid(row=0, column=0, padx=50, pady=50)
