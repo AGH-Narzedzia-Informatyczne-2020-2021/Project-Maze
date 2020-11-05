@@ -1,6 +1,6 @@
 from tkinter import *
 from PIL import  Image,ImageTk
-from CalculatorLib import Calculator
+import Calculator
 import Quiz
 import Window2
 
