@@ -1,6 +1,6 @@
 from tkinter import *
 from PIL import  Image,ImageTk
-from CalulatorDir import Calculator
+from CalculatorDir import Calculator
 import Quiz
 import Checklist
 
