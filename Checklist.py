@@ -31,7 +31,7 @@ class Checklist:
         self.quitButton.grid(row=3, column=1)
 
     def close_windows(self):
-          self.master.destroy()
+        self.master.destroy()
 
 
 
