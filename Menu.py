@@ -35,7 +35,7 @@ class Menu:
 
     def new_window2(self):
         new_window = Toplevel(self.master)
-        Quiz.Quiz(new_window, self)
+        Quiz.Quiz(new_window)
 
     def new_window3(self):
         new_window = Toplevel(self.master)

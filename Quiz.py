@@ -1,18 +1,35 @@
 from tkinter import *
 from PIL import Image,ImageTk
+import CountryIMG
 
 
 class Quiz:
-    def __init__(self, master, parent):
+    def __init__(self, master):
         self.master = master
         self.master.title("Quiz")
         self.master.geometry("500x450")
         self.master.iconbitmap(r'Images\earth_icon.ico')
         self.frame = Frame(self.master)
-        self.quitButton = Button(self.frame, text = 'Quit', width=25, command=self.close_windows)
-        self.quitButton.pack()
         self.frame.pack()
-        self.parent = parent
+        self.quitButton = Button(self.frame, text = 'X', padx=15,pady=10, bg = "red",command=self.close_windows)
+        #self.quitButton.grid(row =0, column=1)
+        self.startLabel = Label(self.frame, text="Aby rozpocząć kliknij przycisk Start")
+        self.startLabel.grid(row=0,column=0)
+        self.startButton = Button(self.frame,text="START",padx=30,pady=10,command=self.Start)
+        self.startButton.grid(row=1,column=0)
+
+        self.countryList = CountryIMG.CountryIMG()
+        self.tmpImage = self.countryList.CountryList[0][0]
+
+    def Start(self):
+        self.startButton.destroy()
+        self.startLabel.destroy()
+        self.Quiz_work()
+
+    def Quiz_work(self):
+        self.countryLabel = Label(self.frame, image=self.tmpImage)
+        self.countryLabel.grid(row=0, column=0)
+
 
     def close_windows(self):
         self.master.destroy()
