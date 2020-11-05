@@ -6,6 +6,20 @@ def euclid(a, b):
     return a
 
 
+def to_rational(text):  # assume that text is correct
+    result = None
+    if "." in text:
+        nums = text.split(".")
+        st = to_rational(nums[0])
+        nd = to_rational(nums[1])
+        nd /= Rational(10**len(nums[1]), 1)
+        result = st + nd
+    else:
+        result = Rational(int(text), 1)
+    result.shortening()
+    return result
+
+
 class Rational:
     def __init__(self, numerator, denominator):
         self._numerator = int(numerator)
