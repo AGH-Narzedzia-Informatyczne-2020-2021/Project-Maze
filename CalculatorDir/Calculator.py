@@ -1,12 +1,14 @@
 from tkinter import *
+from CalculatorDir import Rational
 
 
 operators = {"+", "-", "*", "/"}
 numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"}
+legal_sings = operators.union(numbers)
+legal_sings = legal_sings.union({"."})
 
 
 def is_valid(list_of_formulas):  # sprawdza czy użytkownik nie podał błędnych znaków
-    legal_sings = operators.union(numbers)
     for word in list_of_formulas:
         for letter in word:
             if letter not in legal_sings:
@@ -28,7 +30,7 @@ def split_sentence(sentence):    # rozdziela dane na znaki i liczby tz 1+22 => 1
 
     while "" in formulas:
         formulas.remove("")
-    # print(formulas)  # debug
+    print(formulas)  # debug
     return formulas
 
 
@@ -51,8 +53,6 @@ def remove_unwanted_sings(list_of_formulas):
 
 
 def simple_calc(a, operator, b):     # potrafi wykonać bazowe obliczenia jak 1+3
-    a = int(a)
-    b = int(b)
     if operator == "+":
         return a+b
     if operator == "-":
@@ -66,7 +66,7 @@ def simple_calc(a, operator, b):     # potrafi wykonać bazowe obliczenia jak 1+
 
 
 def priority_calc(operators_set, formulas):  # wykonuje działania na operatorach danych w operators_set
-    sth_hanged = False
+    sth_changed = False
     i = 0
     while i < len(formulas):
         if formulas[i] in operators_set:
@@ -75,10 +75,21 @@ def priority_calc(operators_set, formulas):  # wykonuje działania na operatorac
             formulas.pop(i)
             formulas.pop(i - 1)
             formulas.insert(i - 1, result)
-            sth_hanged = True
+            sth_changed = True
             break
         i += 1
-    return formulas, sth_hanged
+    return formulas, sth_changed
+
+
+def convert_to_rational(formulas):
+    print(formulas)
+    rationals = []
+    for word in formulas:
+        if word[0] not in operators:
+            rationals.append(Rational.to_rational(word))
+        else:
+            rationals.append(word)
+    return rationals
 
 
 class Calculator:
@@ -184,15 +195,16 @@ class Calculator:
                     self.entry.insert(0, current[0:-2] + nmbr)
 
     def calculate(self):
+
         self.result.delete(0, 'end')
         formulas = split_sentence(self.entry.get())
         formulas = remove_unwanted_sings(formulas)
-        self.entry.delete(0, 'end')
 
         if not is_valid(formulas):
             self.result.insert(0, "Error")
             return
 
+        formulas = convert_to_rational(formulas)
         print(formulas)
 
         should_continue = True
