@@ -14,6 +14,7 @@ class CountryIMG:
         self.albaniaResized = resizeimage.resize_cover(Image.open(r'CountryImages\Europ\mapa-albania.gif'),[self.size,self.size])
         self.AlbaniaImage = ImageTk.PhotoImage(self.albaniaResized)
         self.albania=[self.AlbaniaImage,"Albania"]
+
         self.CountryList = [self.kosowo,self.norwegia,self.albania]
 
 
