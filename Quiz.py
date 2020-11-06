@@ -25,7 +25,7 @@ class Quiz:
         self.startImageLabel.grid(row =0,column=0)
 
         self.countryList = CountryIMG.CountryIMG()
-        self.tmpImage = self.countryList.CountryList[0][0]
+        self.tmpImage = self.countryList.CountryImage[0]
 
     def Start(self):
         self.startButton.destroy()

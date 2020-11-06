@@ -1,23 +1,23 @@
 from tkinter import *
 from PIL import Image,ImageTk
 from resizeimage import resizeimage
+import os
 
 class CountryIMG:
     def __init__(self):
         self.size = 400
-        self.kosowoResized = resizeimage.resize_cover(Image.open(r'CountryImages\Europ\kosowo2-970x542.jpg'),[self.size,self.size])
-        self.KosowoImage=ImageTk.PhotoImage(self.kosowoResized)
-        self.kosowo=[self.KosowoImage,"Kosowo"]
-        self.norwegiaResized = resizeimage.resize_cover(Image.open(r'CountryImages\Europ\lokalizacja-norwegii-na-tle-europy.gif'),[self.size,self.size])
-        self.NorwegiaImage = ImageTk.PhotoImage(self.norwegiaResized)
-        self.norwegia=[self.NorwegiaImage,"Norwegia"]
-        self.albaniaResized = resizeimage.resize_cover(Image.open(r'CountryImages\Europ\mapa-albania.gif'),[self.size,self.size])
-        self.AlbaniaImage = ImageTk.PhotoImage(self.albaniaResized)
-        self.albania=[self.AlbaniaImage,"Albania"]
+        self.files = os.listdir(r'CountryImages\Europ')
+        self.CountryImage = []
 
-        self.CountryList = [self.kosowo,self.norwegia,self.albania]
+        for self.f in self.files:
+            self.ImageResized = resizeimage.resize_cover(Image.open(r'CountryImages\Europ\\' + self.f),[self.size, self.size])
+            self.countryImage = ImageTk.PhotoImage(self.ImageResized)
+            self.CountryImage.append(self.countryImage)
 
-
-
-
-
+        #tymczasowo w tablicy , w przyszlosci dzialnie na pliku
+        self.CountryName = ["Kosowo","Norwegia","Albania","Andora","Austria","Belgia","Bialoruś","Bośnia i Hercegowina",
+                            "Bułgaria","Chorwacja","Czarnogóra","Czechy","Dania","Estonia","Finlandia","Francja","Gibraltar",
+                            "Grecja","Hiszpania","Holadnia","Irlandia","Islandia","Jan Mayen","Jersey","Lichtenstein",
+                            "Litwa","Łotwa","Luksemburg","Macedonia","Malta","Mołdawia","Monako","Niemcy","Polska","Portugalia",
+                            "Rosja","Rumunia","San Marino","Serbia","Słowacja","Słowenia","Szwajcaria","Szwecja","Ukraina","Watykan",
+                            "Węgry","Wielka Brytania","Włochy","Wyspa Man","Wyspy Owcze"]
