@@ -103,57 +103,57 @@ class Calculator:
         self.master = master
         self.frame = Frame(self.master)
         self.master.title("Kalkulator")
-        self.master.geometry("500x500")
+        #self.master.geometry("500x500")
         self.frame = Frame(self.master)
-
+        self.master.iconbitmap(r'Images\calculator-icon.ico')
         self.kasuj = ImageTk.PhotoImage(Image.open(r'Images\kasuj.png'))
 
-        sk = 5   # szerokosc przyciskow
-        wk = 2    # wysokosc przyciskow
+        sk = 7   # szerokosc przyciskow
+        wk = 3    # wysokosc przyciskow
 
         self.entry = Entry(self.master)
-        self.entry.grid(row=0, column=0, columnspan=3, sticky=N+S+W+E)
+        self.entry.grid(row=0, column=0, columnspan=4, sticky=N+S+W+E)
 
         self.calculate = Button(self.master, text="=", height=wk, width=sk, command=self.calculate)
         self.calculate.grid(row=6, column=3, rowspan=2)
 
         self.result = Entry(self.master, text="0")
-        self.result.grid(row=1, column=0, columnspan=3, sticky=N+S+W+E)
+        self.result.grid(row=1, column=0, columnspan=4, sticky=N+S+W+E)
 
-        self.quitButton = Button(self.master, text='X', command=self.close_windows, bg="red", width=sk, height=wk)
-        self.quitButton.grid(row=0, column=3, rowspan=2, sticky=N+S)
+        self.quitButton = Button(self.master, text='X', command=self.close_windows, bg="DarkRed", width=sk, height=wk)
+        self.quitButton.grid(row=0, column=4, rowspan=2, sticky=N+S)
 
-        self.nineButton = Button(self.master, text='9', height=wk, width=sk, command=lambda: self.click('9'))
+        self.nineButton = Button(self.master, text='9', height=wk, width=sk, bg="LightBlue", command=lambda: self.click('9'))
         self.nineButton.grid(row=3, column=0)
 
-        self.eightButton = Button(self.master, text='8', height=wk, width=sk, command=lambda: self.click('8'))
+        self.eightButton = Button(self.master, text='8', height=wk, width=sk, bg="LightBlue", command=lambda: self.click('8'))
         self.eightButton.grid(row=3, column=1)
 
-        self.sevenButton = Button(self.master, text='7', height=wk, width=sk, command=lambda: self.click('7'))
+        self.sevenButton = Button(self.master, text='7', height=wk, width=sk, bg="LightBlue", command=lambda: self.click('7'))
         self.sevenButton.grid(row=3, column=2)
 
         self.divisionButton = Button(self.master, text='/', height=wk, width=sk, command=lambda: self.click("/"))
         self.divisionButton.grid(row=2, column=3)
 
-        self.sixButton = Button(self.master, text='6', height=wk, width=sk, command=lambda: self.click('6'))
+        self.sixButton = Button(self.master, text='6', height=wk, width=sk, bg="LightBlue", command=lambda: self.click('6'))
         self.sixButton.grid(row=4, column=0)
 
-        self.fiveButton = Button(self.master, text='5', height=wk, width=sk, command=lambda: self.click('5'))
+        self.fiveButton = Button(self.master, text='5', height=wk, width=sk, bg="LightBlue", command=lambda: self.click('5'))
         self.fiveButton.grid(row=4, column=1)
 
-        self.fourButton = Button(self.master, text='4', height=wk, width=sk, command=lambda: self.click('4'))
+        self.fourButton = Button(self.master, text='4', height=wk, width=sk, bg="LightBlue", command=lambda: self.click('4'))
         self.fourButton.grid(row=4, column=2)
 
         self.multiplicationButton = Button(self.master, text='*', height=wk, width=sk, command=lambda: self.click("*"))
         self.multiplicationButton.grid(row=3, column=3)
 
-        self.treeButton = Button(self.master, text='3', height=wk, width=sk, command=lambda: self.click('3'))
+        self.treeButton = Button(self.master, text='3', height=wk, width=sk, bg="LightBlue", command=lambda: self.click('3'))
         self.treeButton.grid(row=5, column=0)
 
-        self.twoButton = Button(self.master, text='2', height=wk, width=sk, command=lambda: self.click('2'))
+        self.twoButton = Button(self.master, text='2', height=wk, width=sk, bg="LightBlue", command=lambda: self.click('2'))
         self.twoButton.grid(row=5, column=1)
 
-        self.oneButton = Button(self.master, text='1', height=wk, width=sk, command=lambda: self.click('1'))
+        self.oneButton = Button(self.master, text='1', height=wk, width=sk, bg="LightBlue", command=lambda: self.click('1'))
         self.oneButton.grid(row=5, column=2)
 
         self.subtractionButton = Button(self.master, text='-', height=wk, width=sk, command=lambda: self.click("-"))
@@ -162,7 +162,7 @@ class Calculator:
         self.clearButton = Button(self.master, text='C', height=wk, width=sk, command=self.clear)
         self.clearButton.grid(row=6, column=0)
 
-        self.zeroButton = Button(self.master, text='0', height=wk, width=sk, command=lambda: self.click('0'))
+        self.zeroButton = Button(self.master, text='0', height=wk, width=sk, bg="LightBlue", command=lambda: self.click('0'))
         self.zeroButton.grid(row=6, column=1)
 
         self.dotButton = Button(self.master, text='.', height=wk, width=sk, command=lambda: self.click("."))
@@ -179,6 +179,21 @@ class Calculator:
 
         self.additionButton = Button(self.master, image=self.kasuj, height=wk, width=sk, command=self.dele)
         self.additionButton.grid(row=2, column=2, sticky=N+S+W+E)
+
+        self.additionButton = Button(self.master, text='', height=wk, width=sk)
+        self.additionButton.grid(row=2, column=4)
+
+        self.additionButton = Button(self.master, text='', height=wk, width=sk)
+        self.additionButton.grid(row=3, column=4)
+
+        self.additionButton = Button(self.master, text='', height=wk, width=sk)
+        self.additionButton.grid(row=4, column=4)
+
+        self.additionButton = Button(self.master, text='', height=wk, width=sk)
+        self.additionButton.grid(row=5, column=4)
+
+        self.additionButton = Button(self.master, text='<=>', height=wk, width=sk)
+        self.additionButton.grid(row=6, column=4)
 
         self.result.delete(0, "end")
 
