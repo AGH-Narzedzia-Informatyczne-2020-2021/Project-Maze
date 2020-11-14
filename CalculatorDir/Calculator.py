@@ -192,7 +192,7 @@ class Calculator:
         self.additionButton = Button(self.master, text='', height=wk, width=sk)
         self.additionButton.grid(row=5, column=4)
 
-        self.additionButton = Button(self.master, text='<=>', height=wk, width=sk)
+        self.additionButton = Button(self.master, text='<=>', height=wk, width=sk, command=self.expand)
         self.additionButton.grid(row=6, column=4)
 
         self.result.delete(0, "end")
@@ -284,3 +284,9 @@ class Calculator:
 
         self.result.insert(0, self.entry.get())
         self.entry.delete(0, 'end')
+
+    def expand(self):
+        a = int(self.result.get()[:self.result.get().index("/")])
+        b = int(self.result.get()[self.result.get().index("/")+1:])
+        self.result.delete(0, 'end')
+        self.result.insert(0, a/b)
