@@ -53,7 +53,7 @@ def remove_unwanted_sings(list_of_formulas):
     return list_of_formulas
 
 
-def simple_calc(a, operator, b):     # potrafi wykonać bazowe obliczenia jak 1+3
+def simple_calc(a, operator, b): # potrafi wykonać bazowe obliczenia jak 1+3
     if operator == "+":
         return a+b
     if operator == "-":
@@ -233,18 +233,22 @@ class Calculator:
 
     def calculate(self):
 
-        while self.entry.get().count("(") != 0:  # nawiasy
-            curr = self.entry.get()
-            a = curr[0: curr.index("(")]
-            x = curr[curr.index("(") + 1: curr.index(")")]
-            b = curr[curr.index(")") + 1:]
+        for i in range(0, self.entry.get().count("(")+1):
+            a = ""
+            b = ""
 
-            while x.count("(") != 0:
-                a = a + '(' + x[:x.index("(")]
-                x = x[x.index("(") + 1:]
+            if self.entry.get().count("(") != 0:  # nawiasy
+                curr = self.entry.get()
+                a = curr[0: curr.index("(")]
+                x = curr[curr.index("(") + 1: curr.index(")")]
+                b = curr[curr.index(")") + 1:]
 
-            self.entry.delete(0, 'end')
-            self.entry.insert(0, x)
+                while x.count("(") != 0:
+                    a = a + '(' + x[:x.index("(")]
+                    x = x[x.index("(") + 1:]
+
+                self.entry.delete(0, 'end')
+                self.entry.insert(0, x)
 
             self.result.delete(0, 'end')
             formulas = split_sentence(self.entry.get())
@@ -276,30 +280,7 @@ class Calculator:
                 cur = cur[1:]
 
             self.entry.delete(0, 'end')
-            self.entry.insert(0, str(a) + str(cur) + str(b))     #koniec nawiasy
+            self.entry.insert(0, str(a) + str(cur) + str(b))
 
-        self.result.delete(0, 'end')
-        formulas = split_sentence(self.entry.get())
-        formulas = remove_unwanted_sings(formulas)
-
-        if not is_valid(formulas):
-            self.result.insert(0, "Error")
-            return
-
-        formulas = convert_to_rational(formulas)
-        print(formulas)
-
-        should_continue = True
-        while should_continue:
-            formulas, should_continue = priority_calc({"*", "/"}, formulas)
-        should_continue = True
-        while should_continue:
-            formulas, should_continue = priority_calc({"+", "-"}, formulas)
-
-        print(formulas)
-        result = formulas[0]
-
-        self.result.insert(0, str(result))
+        self.result.insert(0, self.entry.get())
         self.entry.delete(0, 'end')
-
-
