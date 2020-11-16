@@ -21,3 +21,5 @@ class CountryIMG:
                             "Litwa","Łotwa","Luksemburg","Macedonia","Malta","Mołdawia","Monako","Niemcy","Polska","Portugalia",
                             "Rosja","Rumunia","San Marino","Serbia","Słowacja","Słowenia","Szwajcaria","Szwecja","Ukraina","Watykan",
                             "Węgry","Wielka Brytania","Włochy","Wyspa Man","Wyspy Owcze"]
+
+        self.County= [list(a) for a in zip(self.CountryImage, self.CountryName)]

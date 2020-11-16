@@ -2,6 +2,7 @@ from tkinter import *
 from PIL import Image,ImageTk
 from resizeimage import resizeimage
 import CountryIMG
+import random
 
 
 
@@ -25,7 +26,8 @@ class Quiz:
         self.startImageLabel.grid(row =0,column=0)
 
         self.countryList = CountryIMG.CountryIMG()
-        self.tmpImage = self.countryList.CountryImage[0]
+        self.numberOfQuestion = 10
+        self.QuizList = random.sample(self.countryList.County,self.numberOfQuestion)
 
     def Start(self):
         self.startButton.destroy()
@@ -35,8 +37,58 @@ class Quiz:
         self.Quiz_work()
 
     def Quiz_work(self):
-        self.countryLabel = Label(self.frame,image = self.tmpImage)
-        self.countryLabel.grid(row = 0 , column=0)
+        self.QuestionNumber = -1
+        self.points = 0
+
+        self.tmpName=self.QuizList[0][1]
+
+        self.Question = Label(self.frame)
+        self.Question.grid(row=0, column=0, columnspan=3)
+
+        self.countryLabel = Label(self.frame)
+        self.countryLabel.grid(row=1, column=0, columnspan=3)
+        #Countyr name do celuw debugerskich quizu
+        self.countryName = Label(self.frame)
+        self.countryName.grid(row=2, column=0, columnspan=3)
+
+        self.odpA = Button(self.frame, command=lambda:self.Next_Question(self.odpA.cget('text')))
+        self.odpA.grid(row=3, column=0,)
+        self.odpB = Button(self.frame, command=lambda:self.Next_Question(self.odpB.cget('text')))
+        self.odpB.grid(row=3, column=1)
+        self.odpC = Button(self.frame, command=lambda:self.Next_Question(self.odpC.cget('text')))
+        self.odpC.grid(row=3, column=2)
+
+        self.Wynik = Label(self.frame)
+        self.Wynik.grid(row=4, column=0, columnspan=3,pady=50)
+
+        self.Next_Question()
+
+    def Next_Question(self, odp = ""):
+        #sprawdzenie odpowiedzi i przyznanie punktow
+        if (odp == self.tmpName):
+            self.points +=1
+        self.QuestionNumber +=1
+        #jeżeli jeszcze są państwa ustaw pytanie i odpowiedzi
+        if (self.QuestionNumber < len(self.QuizList)):        
+            self.tmpImage = self.QuizList[self.QuestionNumber][0]
+            self.tmpName = self.QuizList[self.QuestionNumber][1]
+
+            self.Question.config(text=str(self.QuestionNumber+1)+"/"+str(self.numberOfQuestion))
+            self.countryLabel.config(image=self.tmpImage)
+            self.countryName.config(text=self.tmpName)
+            #tworzenie odpowiedzi
+            self.Names =  random.sample(self.countryList.CountryName,2)
+            self.Names.append(self.tmpName)
+            random.shuffle(self.Names)
+
+            self.odpA.config(text=self.Names[0])
+            self.odpB.config(text=self.Names[1])
+            self.odpC.config(text=self.Names[2])
+
+            self.Wynik.config(text="wynik: "+str(self.points)+"/"+str(self.QuestionNumber))
+        else:
+            self.close_windows()
+            #wyświetlenie ekranu końcowego
 
 
     def close_windows(self):
