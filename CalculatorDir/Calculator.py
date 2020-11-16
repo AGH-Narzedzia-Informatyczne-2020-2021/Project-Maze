@@ -92,13 +92,18 @@ def convert_to_rational(formulas):
             rationals.append(word)
     return rationals
 
+
 def two_operators(sign):
     if sign == "+":
         return "-"
     if sign == "-":
         return "+"
 
+
 class Calculator:
+
+    final_fraction = None
+
     def __init__(self, master):
         self.master = master
         self.frame = Frame(self.master)
@@ -232,7 +237,8 @@ class Calculator:
                     self.entry.insert(0, current[0:-2] + nmbr)
 
     def calculate(self):
-
+        if len(self.entry.get()) == 0:
+            return
         for i in range(0, self.entry.get().count("(")+1):
             a = ""
             b = ""
@@ -270,6 +276,7 @@ class Calculator:
 
             print(formulas)
             result = formulas[0]
+            self.final_fraction = result
 
             self.entry.delete(0, 'end')
             self.entry.insert(0, str(result))
@@ -286,7 +293,11 @@ class Calculator:
         self.entry.delete(0, 'end')
 
     def expand(self):
-        a = int(self.result.get()[:self.result.get().index("/")])
-        b = int(self.result.get()[self.result.get().index("/")+1:])
-        self.result.delete(0, 'end')
-        self.result.insert(0, a/b)
+        if self.result.get().find("/") == -1:
+            self.result.delete(0, 'end')
+            self.result.insert(0,self.final_fraction)
+        else:
+            a = int(self.result.get()[:self.result.get().index("/")])
+            b = int(self.result.get()[self.result.get().index("/")+1:])
+            self.result.delete(0, 'end')
+            self.result.insert(0, a/b)
