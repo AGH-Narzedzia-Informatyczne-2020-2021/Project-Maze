@@ -239,6 +239,7 @@ class Calculator:
     def calculate(self):
         if len(self.entry.get()) == 0:
             return
+        input_save = self.entry.get()
         for i in range(0, self.entry.get().count("(")+1):
             a = ""
             b = ""
@@ -289,15 +290,27 @@ class Calculator:
             self.entry.delete(0, 'end')
             self.entry.insert(0, str(a) + str(cur) + str(b))
 
-        self.result.insert(0, self.entry.get())
+        self.result.insert(0, self.show_result(self.final_fraction))
         self.entry.delete(0, 'end')
 
     def expand(self):
         if self.result.get().find("/") == -1:
             self.result.delete(0, 'end')
-            self.result.insert(0,self.final_fraction)
+            self.result.insert(0,self.show_result(self.final_fraction, "S"))
         else:
-            a = int(self.result.get()[:self.result.get().index("/")])
-            b = int(self.result.get()[self.result.get().index("/")+1:])
             self.result.delete(0, 'end')
-            self.result.insert(0, a/b)
+            self.result.insert(0, self.show_result(self.final_fraction, "D"))
+
+
+    def show_result(self, fraction, mode="S"):  # "S" for Symbolic and "D" for Decimal
+        if fraction.d == 0:
+            return "Div by 0 Error"
+        if mode == "D":
+            return fraction.n/fraction.d
+        elif fraction.d == 1:
+            return fraction.n
+        else:
+            return fraction
+
+
+
