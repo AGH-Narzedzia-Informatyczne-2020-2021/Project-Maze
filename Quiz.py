@@ -27,7 +27,7 @@ class Quiz:
 
         self.countryList = CountryIMG.CountryIMG()
         self.numberOfQuestion = 10
-        self.QuizList = random.sample(self.countryList.County,self.numberOfQuestion)
+        self.QuizList = random.sample(self.countryList.Country,self.numberOfQuestion)
 
     def Start(self):
         self.startButton.destroy()
@@ -43,13 +43,13 @@ class Quiz:
         self.tmpName=self.QuizList[0][1]
 
         self.Question = Label(self.frame)
-        self.Question.grid(row=0, column=0, columnspan=3)
+        self.Question.grid(row=0, column=0, columnspan=5)
 
         self.countryLabel = Label(self.frame)
-        self.countryLabel.grid(row=1, column=0, columnspan=3)
-        #Countyr name do celuw debugerskich quizu
+        self.countryLabel.grid(row=1, column=0, columnspan=5)
+        #Country name do celów debugerskich quizu
         self.countryName = Label(self.frame)
-        self.countryName.grid(row=2, column=0, columnspan=3)
+        self.countryName.grid(row=2, column=0, columnspan=5)
 
         self.odpA = Button(self.frame, command=lambda:self.Next_Question(self.odpA.cget('text')))
         self.odpA.grid(row=3, column=0,)
@@ -57,9 +57,11 @@ class Quiz:
         self.odpB.grid(row=3, column=1)
         self.odpC = Button(self.frame, command=lambda:self.Next_Question(self.odpC.cget('text')))
         self.odpC.grid(row=3, column=2)
+        self.odpD = Button(self.frame , command =lambda:self.Next_Question(self.odpD.cget("text")))
+        self.odpD.grid(row =3,column =4)
 
         self.Wynik = Label(self.frame)
-        self.Wynik.grid(row=4, column=0, columnspan=3,pady=50)
+        self.Wynik.grid(row=4, column=0, columnspan=5,pady=50)
 
         self.Next_Question()
 
@@ -77,15 +79,16 @@ class Quiz:
             self.countryLabel.config(image=self.tmpImage)
             self.countryName.config(text=self.tmpName)
             #tworzenie odpowiedzi
-            self.Names =  random.sample(self.countryList.CountryName,2)
+            self.Names =  random.sample(self.countryList.CountryName,3)
             self.Names.append(self.tmpName)
             random.shuffle(self.Names)
 
             self.odpA.config(text=self.Names[0])
             self.odpB.config(text=self.Names[1])
             self.odpC.config(text=self.Names[2])
+            self.odpD.config(text=self.Names[3])
 
-            self.Wynik.config(text="wynik: "+str(self.points)+"/"+str(self.QuestionNumber))
+            self.Wynik.config(text="wynik: "+str(self.points)+"/"+str(self.numberOfQuestion))
         else:
             self.close_windows()
             #wyświetlenie ekranu końcowego

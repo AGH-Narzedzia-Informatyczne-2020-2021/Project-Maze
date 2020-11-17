@@ -22,4 +22,4 @@ class CountryIMG:
                             "Rosja","Rumunia","San Marino","Serbia","Słowacja","Słowenia","Szwajcaria","Szwecja","Ukraina","Watykan",
                             "Węgry","Wielka Brytania","Włochy","Wyspa Man","Wyspy Owcze"]
 
-        self.County= [list(a) for a in zip(self.CountryImage, self.CountryName)]
+        self.Country= [list(a) for a in zip(self.CountryImage, self.CountryName)]
