@@ -1,7 +1,9 @@
 from tkinter import *
 
 
-class Checklist:
+
+
+class DropDown:
 
     def __init__(self, master, parent):
         self.master = master
@@ -30,8 +32,12 @@ class Checklist:
         self.showButton.grid(row=2, column=1)
         self.quitButton.grid(row=3, column=1)
 
+        #testowe rozwijane menu
+        variable = StringVar(master)
+        variable.set("one")  # Wartośc podstawowa
+
+        self.w = OptionMenu(master, variable, "one", "two", "three")
+        self.w.grid(row=5, column=1)
+
     def close_windows(self):
         self.master.destroy()
-
-
-
