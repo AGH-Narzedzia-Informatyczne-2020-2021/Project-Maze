@@ -31,7 +31,7 @@
 * Bartosz Sambór [Gist projektu](https://gist.github.com/BartoszSambor/54c478cf5429743e91250afd74b88bfa.git) 
 [Własny Gist](https://gist.github.com/BartoszSambor/bda3d32560f2f4ebb1782a6b801607c8.git)
 * Tymoteusz Telinga: [translate](https://gist.github.com/TymoteuszTelinga/6955330f8d6b54b30deafdfec7d346d7) [Next Question](https://gist.github.com/TymoteuszTelinga/d4b85ad1359a4787f26c66c01f441b33)
-* Adam Master: [Gist 1](https://gist.github.com/Avenives/89b89a2c380ce775c000dbf343905cd7)
+* Adam Master: [Gist 1](https://gist.github.com/Avenives/89b89a2c380ce775c000dbf343905cd7) [Gist 2](https://gist.github.com/Avenives/c6b626b2b8b36046801ddeeb696b87d9)
 
 
 
