@@ -21,7 +21,8 @@
 
 &#x1F34E; &#x1F4D7; &#x1F39B; &#x1f40b; &#x1F43D; 
  
-https://gist.github.com/a5087030dc5fcd67b881bdb712c721be.git
+* Rafał Mamak: https://gist.github.com/a5087030dc5fcd67b881bdb712c721be.git
+https://gist.github.com/4dc989decf47e0364ff90ac1225511d5.git
 * Lukasz Suchan : Quzi Class https://gist.github.com/LukaszSuchan/a132f76c6ba9579bf3d601abdaf03740
 https://gist.github.com/d912092924ce16955cd46b8cb6d95009.git
 
