@@ -16,7 +16,7 @@
 **Minimalne wymagania sprzętowe**
 * Procesor: Tak
 * Myszka: Tak
-* Monitor: Tak
+* Monitor: 2
 
 **Planowany termin ukończenia**
 * Styczeń :two::zero::two::one:
