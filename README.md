@@ -5,6 +5,8 @@
 * Python: 
   * tkinter
   * PIL
+  * resizeimage
+  * random
   
 **Co będzie?**
 * - [x] Kalkulator
