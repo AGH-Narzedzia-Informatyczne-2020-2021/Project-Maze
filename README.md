@@ -19,9 +19,11 @@
 **Planowany termin ukończenia**
 * Styczeń :two::zero::two::one:
 
+**Gist:**
+
 &#x1F34E; &#x1F4D7; &#x1F39B; &#x1f40b; &#x1F43D; 
 
-**Gist:**
+
 
 
 
