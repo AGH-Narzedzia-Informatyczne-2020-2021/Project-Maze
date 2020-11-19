@@ -19,10 +19,9 @@
 **Planowany termin ukończenia**
 * Styczeń :two::zero::two::one:
 
-**Gist:**
-
 &#x1F34E; &#x1F4D7; &#x1F39B; &#x1f40b; &#x1F43D; 
 
+https://gist.github.com/a5087030dc5fcd67b881bdb712c721be.git
 
 
 
