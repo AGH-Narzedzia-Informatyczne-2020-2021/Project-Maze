@@ -311,3 +311,6 @@ class Calculator:
             return fraction.n
         else:
             return fraction
+
+
+
