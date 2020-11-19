@@ -8,7 +8,7 @@ import Checklist
 class Menu:
     def __init__(self, master):
         self.master = master
-        self.master.geometry("600x450")
+        self.master.geometry("700x450")
         self.master.title("Menu")
         self.frame = Frame(self.master)
         self.master.iconbitmap(r'Images\cube_icon_.ico')
