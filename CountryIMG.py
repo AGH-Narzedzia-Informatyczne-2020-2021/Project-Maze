@@ -6,20 +6,32 @@ import os
 class CountryIMG:
     def __init__(self):
         self.size = 400
-        self.files = os.listdir(r'CountryImages\Europ')
+        self.TXT =open('CountryImages\Europ\Panstwa.txt',"r",encoding="utf-8")
+
+        self.CountryName=[]
         self.CountryImage = []
 
-        for self.f in self.files:
-            self.ImageResized = resizeimage.resize_cover(Image.open(r'CountryImages\Europ\\' + self.f),[self.size, self.size])
-            self.countryImage = ImageTk.PhotoImage(self.ImageResized)
-            self.CountryImage.append(self.countryImage)
-
-        #tymczasowo w tablicy , w przyszlosci dzialnie na pliku
-        self.CountryName = ["Kosowo","Norwegia","Albania","Andora","Austria","Belgia","Bialoruś","Bośnia i Hercegowina",
-                            "Bułgaria","Chorwacja","Czarnogóra","Czechy","Dania","Estonia","Finlandia","Francja","Gibraltar",
-                            "Grecja","Hiszpania","Holadnia","Irlandia","Islandia","Jan Mayen","Jersey","Lichtenstein",
-                            "Litwa","Łotwa","Luksemburg","Macedonia","Malta","Mołdawia","Monako","Niemcy","Polska","Portugalia",
-                            "Rosja","Rumunia","San Marino","Serbia","Słowacja","Słowenia","Szwajcaria","Szwecja","Ukraina","Watykan",
-                            "Węgry","Wielka Brytania","Włochy","Wyspa Man","Wyspy Owcze"]
+        for line in self.TXT:
+            line = line.replace('\n','')
+            self.name=line
+            line = line.lower()
+            line = self.removeAccents(line)
+            try:
+                self.PATH= "CountryImages\Europ\mapa-"+line+".gif"
+                #self.PATH = "CountryImages\Europ\kosowo.jpg"
+                self.IMG = Image.open(self.PATH)
+                self.ImageResized = resizeimage.resize_cover(self.IMG,[self.size, self.size])
+                self.countryImage = ImageTk.PhotoImage(self.ImageResized)
+                self.CountryName.append(self.name)
+                self.CountryImage.append(self.countryImage)
+            except:
+                line = line.upper()
 
         self.Country= [list(a) for a in zip(self.CountryImage, self.CountryName)]
+
+    def removeAccents(self,input_text):
+        self.strange='ąćęłńóśżź '
+        self.ascii_replacements='acelnoszz-'
+        self.translator=str.maketrans(self.strange,self.ascii_replacements)
+
+        return input_text.translate(self.translator)

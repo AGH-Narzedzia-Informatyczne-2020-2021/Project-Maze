@@ -4,8 +4,6 @@ from resizeimage import resizeimage
 import CountryIMG
 import random
 
-
-
 class Quiz:
     def __init__(self, master):
         self.master = master
@@ -105,6 +103,10 @@ class Quiz:
 
         self.ReplayButton = Button(self.Statframe,text="Spróbuj jeszcze raz",command =self.Replay)
         self.ReplayButton.grid(row=1,pady=20)
+
+        self.QuitButton = Button(self.Statframe, text="ZAKOŃCZ", command=self.close_windows)
+        self.QuitButton.grid(row=2,pady=20)
+        
     def Replay(self):
         self.Statframe.destroy()
         self.Quiz_work()
