@@ -19,14 +19,14 @@
 **Planowany termin ukończenia**
 * Styczeń :two::zero::two::one:
 
-&#x1F34E; &#x1F4D7; &#x1F39B; &#x1f40b; &#x1F43D; 
+
+**Gist:**
  
 * Rafał Mamak: https://gist.github.com/a5087030dc5fcd67b881bdb712c721be.git
 [Link 2](https://gist.github.com/4dc989decf47e0364ff90ac1225511d5.git)
 * Lukasz Suchan : Quzi Class https://gist.github.com/LukaszSuchan/a132f76c6ba9579bf3d601abdaf03740
-* Jakub Konieczny: [Gist 1](https://gist.github.com/d912092924ce16955cd46b8cb6d95009.git)
+* Jakub Konieczny: [Gist 1](https://gist.github.com/d912092924ce16955cd46b8cb6d95009.git) [Gist 2] (https://gist.github.com/167392e5859c5f0e6534de2b82eb298f.git)
 
-
-
+&#x1F34E; &#x1F4D7; &#x1F39B; &#x1f40b; &#x1F43D; 
 
 
