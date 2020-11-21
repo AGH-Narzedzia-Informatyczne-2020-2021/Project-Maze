@@ -2,7 +2,7 @@ from tkinter import *
 from PIL import  Image,ImageTk
 from CalculatorDir import Calculator
 import Quiz
-import Checklist
+from ChecklistDir import Checklist
 
 
 class Menu:
