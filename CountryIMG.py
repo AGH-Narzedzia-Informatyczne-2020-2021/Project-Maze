@@ -1,7 +1,7 @@
 from tkinter import *
 from PIL import Image,ImageTk
 from resizeimage import resizeimage
-import os
+#import os
 
 class CountryIMG:
     def __init__(self):
