@@ -37,3 +37,5 @@ class Checklist:
     def new_window2(self):
         new_window = Toplevel(self.master)
         DropDown.DropDown(new_window, self)
+
+        #komentrz naprawiający
