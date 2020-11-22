@@ -131,5 +131,5 @@ dmypy.json
 # VScode
 .vscode/*.*
 
-./idea
-.idea/workspace.xml
+.idea/
+.idea/*
