@@ -21,6 +21,9 @@ class CreateButton:
         # self.frame.pack()
         # self.parent = parent
 
+        #pobieranie testu
+        self.Task = Entry(self.master)
+
         # pobieranie testu
         self.NewChecklistName = Entry(self.master, width=25)
         self.Task = Entry(self.master, width=25)
@@ -29,7 +32,11 @@ class CreateButton:
             TaskText[0].destroy()
 
             a = self.Task.get()
-            self.ab = a
+
+            MyLabel = Label(self.master, text=a)
+            MyLabel.grid(row =0, column=0)
+            self.Task.delete(0, 'end')
+
             Tasks.append(a)
 
             TaskAdded = Label(self.master, text="Dodano zadanie " + str(len(Tasks)) + ": ")
