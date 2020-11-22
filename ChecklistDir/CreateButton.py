@@ -1,8 +1,6 @@
 from tkinter import *
 
 
-
-
 class CreateButton:
 
     def __init__(self, master, parent):
@@ -16,21 +14,20 @@ class CreateButton:
         #pobieranie testu
         self.Task = Entry(self.master)
 
-
         def Add():
             a = self.Task.get()
             MyLabel = Label(self.master, text=a)
             MyLabel.grid(row =0, column=0)
+            self.Task.delete(0, 'end')
 
         def Make():
             a = self.Task.get()
             MyLabel = Label(self.master, text=a)
             MyLabel.grid(row=4, column=0)
 
-
         # deklaracja przycisków
-        self.AddButton = Button(self.master, text="Dodaj", padx=40, pady=4, command=Add)
-        self.MakeButton = Button(self.master, text='Stworz', padx=35, pady=4, command=Make)
+        self.AddButton = Button(self.master, text="Dodaj", padx=40, pady=4, command=Make)
+        self.MakeButton = Button(self.master, text='Stworz', padx=35, pady=4, command=Add)
 
         # ustawienie w oknie
         self.Task.grid(row =1, column=0)
