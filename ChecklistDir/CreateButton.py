@@ -29,7 +29,6 @@ class CreateButton:
             TaskText[0].destroy()
 
             a = self.Task.get()
-            self.ab = a
             Tasks.append(a)
 
             TaskAdded = Label(self.master, text="Dodano zadanie " + str(len(Tasks)) + ": ")
