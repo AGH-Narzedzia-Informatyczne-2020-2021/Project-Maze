@@ -41,6 +41,7 @@ class CreateButton:
 
             TaskAdded = Label(self.master, text="Dodano zadanie " + str(len(Tasks)) + ": ")
             TaskAdded.grid(row=4, column=0)
+            self.Task.delete(0, 'end')
 
             TaskText[0] = Label(master, text=a)
             TaskText[0].grid(row=5, column=0)
