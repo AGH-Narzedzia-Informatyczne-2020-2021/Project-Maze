@@ -3,6 +3,7 @@ from PIL import Image,ImageTk
 from resizeimage import resizeimage
 import CountryIMG
 import random
+from matplotlib import pyplot
 
 class Quiz:
     def __init__(self, master):
@@ -25,7 +26,9 @@ class Quiz:
 
         self.countryList = CountryIMG.CountryIMG()
         self.numberOfQuestion = 10
-
+        #statystyka:
+        self.counter = 0;
+        self.ylabel = [0 for i in range(10)]
 
     def Start(self):
         self.frame.destroy()
@@ -98,17 +101,35 @@ class Quiz:
         self.QuizFrame.destroy()
         self.Statframe = Frame(self.master)
         self.Statframe.pack()
-        self.StatystykaWynik = Label(self.Statframe,text="wynik: "+str(self.points)+"/"+str(self.numberOfQuestion))
-        self.StatystykaWynik.grid(row=0,column=0,padx=50, pady=50)
+        self.StatystykaWynik = Label(self.Statframe,text="wynik tej próby: "+str(self.points)+"/"+str(self.numberOfQuestion))
+        self.StatystykaWynik.grid(row=0,column=0,padx=50, pady=25)
+
+        #statystyka
+        self.ylabel[self.counter] = self.points
+        self.counter+=1
+        self.xlabel = ["nr."+str(i) for i in range(1,11)]
+        pyplot.bar(self.xlabel,self.ylabel,color = ['orange'])
+        self.y_ticks = (0,1,2,3,4,5,6,7,8,9,10)
+        pyplot.yticks(self.y_ticks)
+        pyplot.xlabel("Próby")
+        pyplot.ylabel("Wyniki")
+        pyplot.savefig(r'Images\figure1.png')
+        self.statImageResized = resizeimage.resize_cover(Image.open(r'Images\figure1.png'), [500, 360])
+        self.statImage = ImageTk.PhotoImage(self.statImageResized)
+        self.statLabel = Label(self.Statframe,image = self.statImage)
+        self.statLabel.grid(row=1,column=0)
 
         self.ReplayButton = Button(self.Statframe,text="Spróbuj jeszcze raz",command =self.Replay)
-        self.ReplayButton.grid(row=1,pady=20)
+        self.ReplayButton.grid(row=2,pady=20)
 
         self.QuitButton = Button(self.Statframe, text="ZAKOŃCZ", command=self.close_windows)
-        self.QuitButton.grid(row=2,pady=20)
+        self.QuitButton.grid(row=3,pady=20)
         
     def Replay(self):
         self.Statframe.destroy()
+        if(self.counter > 9):
+            for i in range(10):
+                self.ylabel[i]=0
         self.Quiz_work()
 
     def close_windows(self):
