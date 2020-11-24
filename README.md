@@ -7,6 +7,7 @@
   * PIL
   * resizeimage
   * random
+  * matplotlib
   
 **Co będzie?**
 * - [x] Kalkulator
