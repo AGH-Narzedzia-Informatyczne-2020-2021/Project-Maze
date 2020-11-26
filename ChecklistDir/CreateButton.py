@@ -1,7 +1,10 @@
 from tkinter import *
+from ChecklistDir import config
+
 
 
 class CreateButton:
+
 
     def __init__(self, master, parent):
         self.master = master
@@ -14,9 +17,9 @@ class CreateButton:
 
         # Lista zadań
         Tasks = []
-        # Magiczny globalny Label w jednoelementowej tablicy, bo inczej nie działa, ja też nie wiem o co chodzi
-        TaskText = [Label(master)]
-
+        # Magiczny globalny Label w jednoelementowej tablicy, bo inczej nie działa, ja też nie wiem o co chodzi, a tez sobie zastosuje ta sztuczke
+        TaskText = [Label(self.master)]
+        TaskAdded = [Label(self.master)]
         # self.frame = Frame(self.master)
         # self.frame.pack()
         # self.parent = parent
@@ -25,27 +28,41 @@ class CreateButton:
         self.NewChecklistName = Entry(self.master, width=25)
         self.Task = Entry(self.master, width=25)
 
+        # tworzenie nowej checklisty
+        def Make():
+            global ListName
+
+            ListName = self.NewChecklistName.get() +".txt"
+            file = open("ChecklistDir/lists/" + str(ListName), "w")
+            config.ChecklistNames.append(ListName)
+            config.n+=1
+
+            Tasks.clear()
+            TaskText[0].destroy()
+            TaskAdded[0].destroy()
+            self.NewChecklistName.delete(0, 'end')
+            file.close()
+
+        #dodanie zadnia
         def Add():
             TaskText[0].destroy()
-
+            TaskAdded[0].destroy()
             a = self.Task.get()
             Tasks.append(a)
 
-            TaskAdded = Label(self.master, text="Dodano zadanie " + str(len(Tasks)) + ": ")
-            TaskAdded.grid(row=4, column=0)
+            TaskAdded[0] = Label(master,text="Dodano zadanie nr "+  str(len(Tasks))+"\n do checklisty \""+str(config.ChecklistNames[config.n-1])+"\": ")
+            TaskAdded[0].grid(row=4, column=0)
             self.Task.delete(0, 'end')
 
-            TaskText[0] = Label(master, text=a)
-            TaskText[0].grid(row=5, column=0)
-
-        def Make():
-            ListName = self.NewChecklistName.get()
-            file = open(("ChecklistDir/lists/" + str(ListName) + ".txt"), "w+")
+            file = open(("ChecklistDir/lists/" + str(config.ChecklistNames[config.n-1])), "w")
             for i in Tasks:
                 file.write(i)
                 file.write("\n")
 
-            close_windows()
+            TaskText[0] = Label(master, text=a)
+            TaskText[0].grid(row=5, column=0)
+            file.close()
+
 
         def close_windows():
             self.master.destroy()
@@ -53,7 +70,7 @@ class CreateButton:
         # deklaracja przycisków
         self.AddButton = Button(self.master, text="Dodaj", padx=40, pady=4, command=Add)
         self.MakeButton = Button(self.master, text="Stworz", padx=38, pady=4, command=Make)
-        self.cancelButton = Button(self.master, text="Anuluj", padx=38, pady=4, command=close_windows)
+        self.cancelButton = Button(self.master, text="Anuluj", bg="DarkRed", padx=38, pady=4, command=close_windows)
 
         # ustawienie w oknie
         NewChecklistText.grid(row=0, column=0)
