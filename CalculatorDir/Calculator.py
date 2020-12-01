@@ -99,6 +99,14 @@ def two_operators(sign):
     if sign == "-":
         return "+"
 
+def nawiasy_bledy(dzialanie):
+    if dzialanie.find("(") != -1 or dzialanie.find(")") != -1:
+        if dzialanie.count("(") != dzialanie.count(")"):
+            return True
+        if dzialanie.find("(") > dzialanie.find(")"):
+            return True
+
+    return False
 
 class Calculator:
 
@@ -231,13 +239,14 @@ class Calculator:
 
         if len(self.entry.get()) > 2:
             current = self.entry.get()
-            if current[-2] == '+' or current[-2] == '-' or current[-2] == '*' or current[-2] == '/':
-                if current[-1] == '+' or current[-1] == '-' or current[-1] == '*' or current[-1] == '/':
+            if current[-2] == '+' or current[-2] == '-' or current[-2] == '*' or current[-2] == '/' or current[-2] == '.':
+                if current[-1] == '+' or current[-1] == '-' or current[-1] == '*' or current[-1] == '/' or current[-1] == '.':
                     self.entry.delete(0, 'end')
                     self.entry.insert(0, current[0:-2] + nmbr)
 
     def calculate(self):
-        if len(self.entry.get()) == 0:
+        if len(self.entry.get()) == 0 or nawiasy_bledy(self.entry.get()):
+            self.result.insert(0, "Error")
             return
         input_save = self.entry.get()
         for i in range(0, self.entry.get().count("(")+1):
