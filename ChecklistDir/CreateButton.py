@@ -3,6 +3,7 @@ from ChecklistDir import config
 
 
 
+
 class CreateButton:
 
 
@@ -45,16 +46,17 @@ class CreateButton:
 
         #dodanie zadnia
         def Add():
+
             TaskText[0].destroy()
             TaskAdded[0].destroy()
             a = self.Task.get()
             Tasks.append(a)
 
-            TaskAdded[0] = Label(master,text="Dodano zadanie nr "+  str(len(Tasks))+"\n do checklisty \""+str(config.ChecklistNames[config.n-1])+"\": ")
+            TaskAdded[0] = Label(master,text="Dodano zadanie nr "+  str(len(Tasks))+"\n do checklisty \""+str(config.ChecklistNames[config.n])+"\": ")
             TaskAdded[0].grid(row=4, column=0)
             self.Task.delete(0, 'end')
 
-            file = open(("ChecklistDir/lists/" + str(config.ChecklistNames[config.n-1])), "w")
+            file = open(("ChecklistDir/lists/" + str(config.ChecklistNames[config.n])), "w")
             for i in Tasks:
                 file.write(i)
                 file.write("\n")

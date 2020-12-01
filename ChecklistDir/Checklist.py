@@ -18,8 +18,8 @@ class Checklist:
         #self.parent = parent
 
       #proba rozwijanego menu
-        def run():
-          myLabel = Label(self.master, text=variable.get()).grid(row=2, column=0)
+       # def run():
+        #  myLabel = Label(self.master, text=variable.get()).grid(row=2, column=0)
 
         def refresh():
              if config.ChecklistNames:
@@ -32,7 +32,7 @@ class Checklist:
 
         #deklaracja przycisków
         self.MakeChecklist = Button(self.master, text="Utworz nowa checklistę", padx=30, pady=50, command=self.new_window1)
-        self.DropDown = Button(self.master, text="Zatwierdz wybór checklisty", padx=10, pady=50, command=run) #xcommand=self.new_window2
+        self.DropDown = Button(self.master, text="Zatwierdz wybór checklisty", padx=10, pady=50,  command=self.new_window2) #command=run) #xcommand=self.new_window2
         self.Refresh = Button(self.master, text="Odswież checklistę", padx=30, pady=50) #na razie zeby odswiezyc checkliste trzeba wyjsc z progrmau do menu
         self.quitButton = Button(self.master, text='Wyjście', padx=80, pady= 10, bg="DarkRed",  command=self.close_windows)
 
@@ -56,8 +56,13 @@ class Checklist:
         CreateButton.CreateButton(new_window, self)
 
     def new_window2(self):
+        for i in range(len(config.ChecklistNames)):
+             if str(config.ChecklistNames[i]) == variable.get():
+                 config.name = i
         new_window = Toplevel(self.master)
         DropDown.DropDown(new_window, self)
+
+
 
 
 
