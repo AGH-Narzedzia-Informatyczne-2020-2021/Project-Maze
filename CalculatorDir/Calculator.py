@@ -108,6 +108,18 @@ def nawiasy_bledy(dzialanie):
 
     return False
 
+historia = [""]
+i = 0
+j = 0
+
+def hist_add(dzialanie):
+    global i
+    global j
+    historia[i]=dzialanie
+    historia.append("")
+    i=i+1
+    j=i
+
 class Calculator:
 
     final_fraction = None
@@ -193,10 +205,10 @@ class Calculator:
         self.additionButton = Button(self.master, image=self.kasuj, height=wk, width=sk, command=self.dele)
         self.additionButton.grid(row=2, column=2, sticky=N+S+W+E)
 
-        self.additionButton = Button(self.master, text='', height=wk, width=sk)
+        self.additionButton = Button(self.master, text='^', height=wk, width=sk, command=lambda: self.hist("-"))
         self.additionButton.grid(row=2, column=4)
 
-        self.additionButton = Button(self.master, text='', height=wk, width=sk)
+        self.additionButton = Button(self.master, text='v', height=wk, width=sk, command=lambda: self.hist("+"))
         self.additionButton.grid(row=3, column=4)
 
         self.additionButton = Button(self.master, text='', height=wk, width=sk)
@@ -209,6 +221,17 @@ class Calculator:
         self.additionButton.grid(row=6, column=4)
 
         self.result.delete(0, "end")
+
+    def hist(self, znak):
+        global j
+        global i
+        if i != 0:
+            if znak == "-" and j > 0:
+                j=j-1
+            if znak == "+" and j < i:
+                j=j+1
+            self.entry.delete(0, 'end')
+            self.entry.insert(0, historia[j])
 
     def dele(self):
         current = self.entry.get()
@@ -249,6 +272,7 @@ class Calculator:
             self.result.insert(0, "Error")
             return
         input_save = self.entry.get()
+
         for i in range(0, self.entry.get().count("(")+1):
             a = ""
             b = ""
@@ -301,6 +325,8 @@ class Calculator:
 
         self.result.insert(0, self.show_result(self.final_fraction))
         self.entry.delete(0, 'end')
+
+        hist_add(input_save)
 
     def expand(self):
         if self.result.get().find("/") == -1:
