@@ -4,9 +4,6 @@ from ChecklistDir import DropDown
 from ChecklistDir import config
 
 
-
-
-
 class Checklist:
 
     def __init__(self, master, parent):
@@ -21,8 +18,11 @@ class Checklist:
        # def run():
         #  myLabel = Label(self.master, text=variable.get()).grid(row=2, column=0)
 
+
         #wyswietlanie rozwijanego menu
         def refresh():
+             if hasattr(self, "menu"):
+                self.menu.destroy()
              if config.ChecklistNames:
                 global  variable
                 variable = StringVar(master)
@@ -31,14 +31,23 @@ class Checklist:
                 self.menu = OptionMenu(self.master, variable, *config.ChecklistNames)
                 self.menu.grid(row=5, column=1)
 
+
+
         #deklaracja przycisków
         self.MakeChecklist = Button(self.master, text="Utworz nowa checklistę", padx=30, pady=50, command=self.OpenMakeChecklist)
         self.DropDown = Button(self.master, text="Zatwierdz wybór checklisty", padx=10, pady=50,  command=self.OpenSelectedChecklist) #command=run) #xcommand=self.new_window2
-        self.Refresh = Button(self.master, text="Odswież checklistę", padx=30, pady=50) #na razie zeby odswiezyc checkliste trzeba wyjsc z progrmau do menu
+        self.Refresh = Button(self.master, text="Odswież checklistę", padx=30, pady=50, command=refresh)
         self.quitButton = Button(self.master, text='Wyjście', padx=80, pady= 10, bg="DarkRed",  command=self.close_windows)
 
+
         #tworzenie rozwijanego menu
-        refresh()
+        if config.ChecklistNames:
+            global variable
+            variable = StringVar(master)
+            variable.set(config.ChecklistNames[0])
+
+            self.menu = OptionMenu(self.master, variable, *config.ChecklistNames)
+            self.menu.grid(row=5, column=1)
 
 
         #ustawienie w oknie
@@ -50,6 +59,7 @@ class Checklist:
 
     def close_windows(self):
         self.master.destroy()
+
 
     #wyświetlanie w nowym oknie onka od tworzenia checklisty
     def OpenMakeChecklist(self):
