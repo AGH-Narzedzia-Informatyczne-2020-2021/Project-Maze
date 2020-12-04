@@ -2,10 +2,7 @@ from tkinter import *
 from ChecklistDir import config
 
 
-
-
 class CreateButton:
-
 
     def __init__(self, master, parent):
         self.master = master
@@ -18,7 +15,8 @@ class CreateButton:
 
         # Lista zadań
         Tasks = []
-        # Magiczny globalny Label w jednoelementowej tablicy, bo inczej nie działa, ja też nie wiem o co chodzi, a tez sobie zastosuje ta sztuczke
+        # Magiczny globalny Label w jednoelementowej tablicy, bo inczej nie działa, ja też nie wiem o co chodzi,
+        # a tez sobie zastosuje ta sztuczke
         TaskText = [Label(self.master)]
         TaskAdded = [Label(self.master)]
         # self.frame = Frame(self.master)
@@ -33,10 +31,10 @@ class CreateButton:
         def Make():
             global ListName
 
-            ListName = self.NewChecklistName.get() +".txt"
+            ListName = self.NewChecklistName.get() + ".txt"
             file = open("ChecklistDir/lists/" + str(ListName), "w")
             config.ChecklistNames.append(ListName)
-            config.n+=1
+            config.n += 1
 
             Tasks.clear()
             TaskText[0].destroy()
@@ -44,15 +42,15 @@ class CreateButton:
             self.NewChecklistName.delete(0, 'end')
             file.close()
 
-        #dodanie zadnia
+        # dodanie zadnia
         def Add():
-
             TaskText[0].destroy()
             TaskAdded[0].destroy()
             a = self.Task.get()
             Tasks.append(a)
 
-            TaskAdded[0] = Label(master,text="Dodano zadanie nr "+  str(len(Tasks))+"\n do checklisty \""+str(config.ChecklistNames[config.n])+"\": ")
+            TaskAdded[0] = Label(master, text="Dodano zadanie nr " + str(len(Tasks)) + "\n do checklisty \"" + str(
+                config.ChecklistNames[config.n]) + "\": ")
             TaskAdded[0].grid(row=4, column=0)
             self.Task.delete(0, 'end')
 
@@ -64,7 +62,6 @@ class CreateButton:
             TaskText[0] = Label(master, text=a)
             TaskText[0].grid(row=5, column=0)
             file.close()
-
 
         def close_windows():
             self.master.destroy()
