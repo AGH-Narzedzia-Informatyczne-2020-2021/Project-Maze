@@ -2,6 +2,7 @@ from tkinter import *
 from ChecklistDir import CreateButton
 from ChecklistDir import DropDown
 from ChecklistDir import config
+import os
 
 
 class Checklist:
@@ -39,6 +40,8 @@ class Checklist:
         self.Refresh = Button(self.master, text="Odswież checklistę", padx=30, pady=50, command=refresh)
         self.quitButton = Button(self.master, text='Wyjście', padx=80, pady=10, bg="DarkRed",
                                  command=self.close_windows)
+        self.deleteChecklistButton = Button(self.master, text='Usuń wybraną Checklistę', padx=30, pady=50, command=self.deleteChecklist)
+
 
         # tworzenie rozwijanego menu
         if config.ChecklistNames:
@@ -52,11 +55,21 @@ class Checklist:
         # ustawienie w oknie
         self.DropDown.grid(row=0, column=1, padx=5, pady=10, columnspan=1, sticky=W)
         self.MakeChecklist.grid(row=0, column=0, padx=5, pady=10, columnspan=1)
-        self.quitButton.grid(row=1, column=0, padx=10, pady=10)
+        self.quitButton.grid(row=2, column=0, padx=10, pady=10)
         self.Refresh.grid(row=1, column=1, padx=10, pady=10)
+        self.deleteChecklistButton.grid(row=1, column=0, padx=5, pady=10, columnspan=1)
 
     def close_windows(self):
         self.master.destroy()
+
+    def deleteChecklist(self):
+        for i in range(len(config.ChecklistNames)):
+            if str(config.ChecklistNames[i]) == variable.get():
+                checklistChoosen = variable.get()
+
+        config.ChecklistNames.remove(checklistChoosen)
+        config.n -= 1
+        os.remove("ChecklistDir/lists/" + checklistChoosen)
 
     # wyświetlanie w nowym oknie onka od tworzenia checklisty
     def OpenMakeChecklist(self):
