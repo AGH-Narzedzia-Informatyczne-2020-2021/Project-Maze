@@ -18,7 +18,7 @@ class CountryIMG:
             line = self.removeAccents(line)
             try:
                 self.PATH= "CountryImages\Europ\mapa-"+line+".gif"
-                #self.PATH = "CountryImages\Europ\kosowo.jpg"
+
                 self.IMG = Image.open(self.PATH)
                 self.ImageResized = resizeimage.resize_cover(self.IMG,[self.size, self.size])
                 self.countryImage = ImageTk.PhotoImage(self.ImageResized)
