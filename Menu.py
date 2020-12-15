@@ -17,12 +17,12 @@ class Menu:
         self.calculator_icon = ImageTk.PhotoImage(Image.open(r'Images\calculator-icon.png'))
         self.quiz_icon = ImageTk.PhotoImage(Image.open(r'Images\earth.png'))
         self.checklist_icon = ImageTk.PhotoImage(Image.open(r'Images\checklist.png'))
-
+        self.exit_icon = ImageTk.PhotoImage(Image.open(r'Images\exit-icon.ico'))
 
         program1 = Button(self.master, image=self.calculator_icon, padx=40, pady=50, command=self.new_window1)
         program2 = Button(self.master, image=self.quiz_icon, padx=40, pady=50, command=self.new_window2)
         program3 = Button(self.master, image=self.checklist_icon, padx=40, pady=50, command=self.new_window3)
-        program4 = Button(self.master, text="program 4", padx=40, pady=50, command=self.new_window4)
+        program4 = Button(self.master, image=self.exit_icon, padx=40, pady=50, command=self.new_window4)
 
         program1.grid(row=0, column=0, padx=50, pady=50)
         program2.grid(row=0, column=1, padx=50, pady=50)
@@ -42,5 +42,6 @@ class Menu:
         Checklist.Checklist(new_window, self)
 
     def new_window4(self):
-        new_window = Toplevel(self.master)
+        self.master.destroy()
+        #new_window = Toplevel(self.master)
        #Window3.Window3(new_window, self)  # not exist yet

@@ -33,14 +33,14 @@ class Checklist:
                 self.menu.grid(row=5, column=1)
 
         # deklaracja przycisków
-        self.MakeChecklist = Button(self.master, text="Utworz nowa checklistę", padx=30, pady=50,
+        self.MakeChecklist = Button(self.master, text="Utworz nowa checklistę", bg = "deep sky blue",padx=30, pady=50,
                                     command=self.OpenMakeChecklist)
-        self.DropDown = Button(self.master, text="Zatwierdz wybór checklisty", padx=10, pady=50,
+        self.DropDown = Button(self.master, text="Zatwierdz wybór checklisty", bg="orange" , padx=10, pady=50,
                                command=self.OpenSelectedChecklist)  # command=run) command=self.new_window2
-        self.Refresh = Button(self.master, text="Odswież checklistę", padx=30, pady=50, command=refresh)
+        self.Refresh = Button(self.master, text="Odswież checklistę", bg="green yellow" ,padx=30, pady=50, command=refresh)
         self.quitButton = Button(self.master, text='Wyjście', padx=80, pady=10, bg="DarkRed",
                                  command=self.close_windows)
-        self.deleteChecklistButton = Button(self.master, text='Usuń wybraną Checklistę', padx=30, pady=50, command=self.deleteChecklist)
+        self.deleteChecklistButton = Button(self.master, text='Usuń wybraną Checklistę', bg="yellow", padx=30, pady=50, command=self.deleteChecklist)
 
 
         # tworzenie rozwijanego menu
