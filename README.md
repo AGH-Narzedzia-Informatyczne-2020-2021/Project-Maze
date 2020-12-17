@@ -20,7 +20,7 @@
 * Monitor: Tak
 
 **Planowany termin ukończenia**
-* Grudzień :two::zero::two::one:
+* Grudzień :two::zero::two::zero:
 
 &#x1F34E; &#x1F4D7; &#x1F39B; &#x1f40b; &#x1F43D; 
  
