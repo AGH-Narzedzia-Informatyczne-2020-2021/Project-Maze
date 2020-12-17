@@ -40,7 +40,7 @@ class Checklist:
         self.Refresh = Button(self.master, text="Odswież checklistę", bg="green yellow" ,padx=30, pady=50, command=refresh)
         self.quitButton = Button(self.master, text='Wyjście', padx=80, pady=10, bg="DarkRed",
                                  command=self.close_windows)
-        self.deleteChecklistButton = Button(self.master, text='Usuń wybraną Checklistę', bg="yellow", padx=30, pady=50, command=self.deleteChecklist)
+        self.deleteChecklistButton = Button(self.master, text='Usuń wybraną Checklistę', bg="#CCFF00", padx=30, pady=50, command=self.deleteChecklist)
 
 
         # tworzenie rozwijanego menu
